@@ -35,14 +35,38 @@ Objective:
 @author: Alejandro Murrieta Mendoza
 """
 
-# STEP 0: Set up a while loop
 
-# STEP 1: Ask the user to provide a number (or to type quit) If quit, Exit the 
-# progam and notify the user s/he has typed quit. 
+class colors:
+    cyan = "\033[96m"
+    red = "\033[91m"
+    yellow = "\033[93m"
+    green = "\033[92m"
+    end = "\033[0m"
 
-# STEP 2: Validate the input. If valid continue, Otherwise, notify the user that
-# the input was not valid and ask for a new number. 
 
-# STEP 3: Convert the provided number to Morse Code
+morse = {
+    "0": "-----",
+    "1": "..---",
+    "2": "..---",
+    "3": "...--",
+    "4": "....-",
+    "5": ".....",
+    "6": "-....",
+    "7": "--...",
+    "8": "---..",
+    "9": "----.",
+    ".": ".-.-.-",
+}
+if __name__ == "__main__":
+    while True:
+        user_input = input("Enter a number to translate, or type quit to exit the program: ")
 
-# STEP 4: Show the provided number and its Morse Code representation. 
+        if user_input == "quit":
+            exit()
+        elif user_input not in morse.keys():
+            print(f"{colors.red}ERROR:{colors.end} The input is not valid, please enter a valid character.")
+            continue
+        else:
+            print(
+                f"The number {colors.cyan}'{user_input}'{colors.end} in morse code is: {colors.cyan}'{morse[user_input]}'{colors.end}"
+            )
