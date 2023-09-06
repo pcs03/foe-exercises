@@ -41,11 +41,23 @@ class Choices(Enum):
 
 
 class colors:
-    cyan = "\033[96m"
-    red = "\033[91m"
-    yellow = "\033[93m"
-    green = "\033[92m"
-    end = "\033[0m"
+    cyan_char = "\033[96m"
+    red_char = "\033[91m"
+    yellow_char = "\033[93m"
+    green_char = "\033[92m"
+    end_char = "\033[0m"
+
+    def green(string):
+        return f"{colors.green_char}{string}{colors.end_char}"
+
+    def red(string):
+        return f"{colors.red_char}{string}{colors.end_char}"
+
+    def yellow(string):
+        return f"{colors.yellow_char}{string}{colors.end_char}"
+
+    def cyan(string):
+        return f"{colors.cyan_char}{string}{colors.end_char}"
 
 
 def plays_prompt():
@@ -53,27 +65,25 @@ def plays_prompt():
         plays = int(input("How many times do you want to play rock/paper/scissors?: "))
         return plays
     except ValueError:
-        print(f"{colors.red}ERROR:{colors.end} The input is not a valid number, please try again.")
+        print(f"{colors.red('ERROR:')} The input is not a valid number, please try again.")
         return plays_prompt()
 
 
 def player_prompt():
     try:
         print("Please select and option:")
-        print("1: rock")
-        print("2: paper")
-        print("3: scissors")
+        print(f"{Choices(1).value}: {Choices(1).name}")
+        print(f"{Choices(2).value}: {Choices(2).name}")
+        print(f"{Choices(3).value}: {Choices(3).name}")
         player_input = int(input("Please enter the number of your choice: "))
 
         if 0 < player_input < 4:
             return Choices(player_input)
         else:
-            print(
-                f"{colors.red}ERROR:{colors.end} The input is not a number between 1 and 3, please input a valid number."
-            )
+            print(f"{colors.red('ERROR:')} The input is not a number between 1 and 3, please input a valid number.")
             return player_prompt()
     except ValueError:
-        print(f"{colors.red}ERROR:{colors.end} The input is not a number between 1 and 3, please input a valid number.")
+        print(f"{colors.red('ERROR:')} The input is not a number between 1 and 3, please input a valid number.")
         return player_prompt()
 
 
@@ -102,22 +112,20 @@ if __name__ == "__main__":
         round_result = determine_winner(player_hand, bot_hand)
         game_status[round_result] += 1
 
+        print(f"You chose {colors.cyan(player_hand.name)}, the bot chose {colors.cyan(bot_hand.name)}")
         print(
-            f"You chose {colors.cyan}{player_hand.name}{colors.cyan}{colors.end}, the bot chose {colors.cyan}{bot_hand.name}{colors.end}"
-        )
-        print(
-            f"This round resulted in a {colors.green if round_result == 'win' else colors.yellow if round_result == 'tie' else colors.red  }{round_result}{colors.end} \n"
+            f"This round resulted in a {colors.green(round_result) if round_result == 'win' else colors.yellow(round_result) if round_result == 'tie' else colors.red(round_result)}\n"
         )
 
-    print(f"{colors.cyan}*GAME ENDED*{colors.end}")
+    print(colors.cyan("!GAME ENDED!"))
     print("Results of this game:")
-    print(f"Nr. of wins: {colors.green}{game_status['win']}{colors.end}, ratio: {game_status['win'] / plays * 100}%")
-    print(f"Nr. of ties: {colors.yellow}{game_status['tie']}{colors.end}, ratio: {game_status['tie'] / plays * 100}%")
-    print(f"Nr. of losses: {colors.red}{game_status['loss']}{colors.end}, ratio: {game_status['loss'] / plays * 100}%")
+    print(f"Nr. of wins: {colors.green(game_status['win'])}, ratio: {round(game_status['win'] / plays * 100, 2)}%")
+    print(f"Nr. of ties: {colors.yellow(game_status['tie'])}, ratio: {round(game_status['tie'] / plays * 100, 2)}%")
+    print(f"Nr. of losses: {colors.red(game_status['loss'])}, ratio: {round(game_status['loss'] / plays * 100, 2)}%")
 
     if game_status["win"] > game_status["loss"]:
-        print(f"You won this game, {colors.green}CONGRATULATIONS!{colors.end}")
+        print(f"You won this game, {colors.green('CONGRATULATIONS!')}")
     elif game_status["win"] == game_status["loss"]:
-        print(f"The game ended in a tie, {colors.yellow}no winners or losers here.{colors.end}")
+        print(f"The game ended in a tie, {colors.yellow('no winners or losers here.')}")
     else:
-        print(f"You lost this game, {colors.red}better luck next time!{colors.end}")
+        print(f"You lost this game, {colors.red('better luck next time!')}")
