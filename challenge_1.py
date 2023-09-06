@@ -31,6 +31,13 @@ Objectives:
 """
 
 import random
+from enum import Enum
+
+
+class Choices(Enum):
+    rock = 1
+    paper = 2
+    scissors = 3
 
 
 class colors:
@@ -59,7 +66,7 @@ def player_prompt():
         player_input = int(input("Please enter the number of your choice: "))
 
         if 0 < player_input < 4:
-            return player_input
+            return Choices(player_input)
         else:
             print(
                 f"{colors.red}ERROR:{colors.end} The input is not a number between 1 and 3, please input a valid number."
@@ -72,9 +79,9 @@ def player_prompt():
 
 def determine_winner(player_hand, bot_hand):
     if (
-        (player_hand == 1 and bot_hand == 3)
-        or (player_hand == 2 and bot_hand == 1)
-        or (player_hand == 3 and bot_hand == 2)
+        (player_hand == Choices.rock and bot_hand == Choices.scissors)
+        or (player_hand == Choices.paper and bot_hand == Choices.rock)
+        or (player_hand == Choices.scissors and bot_hand == Choices.paper)
     ):
         return "win"
     elif player_hand == bot_hand:
@@ -90,11 +97,14 @@ if __name__ == "__main__":
 
     for i in range(plays):
         player_hand = player_prompt()
-        bot_hand = random.randint(1, 3)
+        bot_hand = Choices(random.randint(1, 3))
 
         round_result = determine_winner(player_hand, bot_hand)
         game_status[round_result] += 1
 
+        print(
+            f"You chose {colors.cyan}{player_hand.name}{colors.cyan}{colors.end}, the bot chose {colors.cyan}{bot_hand.name}{colors.end}"
+        )
         print(
             f"This round resulted in a {colors.green if round_result == 'win' else colors.yellow if round_result == 'tie' else colors.red  }{round_result}{colors.end} \n"
         )
