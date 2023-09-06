@@ -30,6 +30,7 @@ Objectives:
 @author: Alejandro Murrieta-Mendoza
 """
 
+import os
 import random
 from enum import Enum
 
@@ -122,10 +123,11 @@ def determine_winner(player_hand, bot_hand):
 if __name__ == "__main__":
     game_status = {"win": 0, "tie": 0, "loss": 0}
 
-    print("=" * 80, end="")
+    os.system("cls" if os.name == "nt" else "clear")
+    print(colors.red("=" * 105), end="")
     print(colors.cyan(ascii_text), end="")
-    print(colors.red(ascii_art), end="")
-    print("=" * 80)
+    print(colors.cyan(ascii_art), end="")
+    print(colors.red("=" * 105))
 
     plays = plays_prompt()
 
