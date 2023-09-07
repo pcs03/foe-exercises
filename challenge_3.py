@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/ python3
 # -*- coding: utf-8 -*-
 """
 Created on Wed Jul  6  2022
@@ -18,38 +18,45 @@ Objective:
 
 """
 
-
-from dataclasses import dataclass
-
-month_lengths = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
-month_lengths_leap = [29 if num == 28 else num for num in month_lengths]
+import math
+from datetime import datetime, timedelta
 
 
-@dataclass
-class Date:
-    year: int
-    month: int
-    day: int
-    hour: int
-    minute: int
+def get_sec_delta(date1: datetime, date2: datetime) -> int:
+    delta_sec = date2.timestamp() - date1.timestamp()
+    return delta_sec
 
 
-def is_leap_year(year: int) -> bool:
-    if year % 400 == 0:
-        return True
-    elif year % 4 == 0 and year % 100 != 0:
-        return True
-    else:
-        return False
+def get_min_delta(date1: datetime, date2: datetime) -> int:
+    delta_min = get_sec_delta(date1, date2) / 60
+    return delta_min
 
 
-date1 = Date(2023, 1, 1, 0, 0)
-date2 = Date(2023, 1, 10, 0, 0)
+def get_hour_delta(date1: datetime, date2: datetime) -> int:
+    delta_hour = get_sec_delta(date1, date2) / 3600
+    return delta_hour
 
-print(date1)
 
-print(is_leap_year(13096))
+def get_day_delta(date1: datetime, date2: datetime) -> int:
+    delta_days = get_sec_delta(date1, date2) / (3600 * 24)
+    return delta_days
 
+
+def print_delta(date1: datetime, date2: datetime) -> None:
+    delta_days = math.floor(get_day_delta(date1, date2))
+    delta_hour = math.floor(get_hour_delta(date1, date2))
+    delta_min = math.floor(get_min_delta(date1, date2))
+
+    print(f"between {date1} and {date2}, there are {delta_days} days, {delta_hour} hours and {delta_min} minutes.")
+
+
+if __name__ == "__main__":
+    date1 = input("Please enter a comma separated list of values for the first date (year, month, day): ")
+    date1 = datetime(*(int(x) for x in date1.split(",")))
+    date2 = input("Please enter a comma separated list of values for the second date (year, month, day): ")
+    date2 = datetime(*(int(x) for x in date2.split(",")))
+
+    print_delta(date1, date2)
 
 # STEP 1: Create a function that computes the number of days between two dates
 # STEP 2: Create a function that computes the number of minutes between two dates
@@ -59,3 +66,11 @@ print(is_leap_year(13096))
 
 # STEP 4: Ask for two dates
 # STEP 5: Print the required inforamtion
+
+
+# print_delta(datetime(2000, 1, 1), datetime(2008, 3, 3))
+# print_delta(datetime(2000, 3, 3), datetime(2008, 3, 3))
+# print_delta(datetime(2000, 3, 3), datetime(2022, 10, 27))
+# print_delta(datetime(1999, 8, 8), datetime(2022, 10, 27))
+# print_delta(datetime(1999, 6, 8), datetime(2022, 10, 27))
+# print_delta(datetime(2001, 7, 30), datetime(2022, 10, 27))
