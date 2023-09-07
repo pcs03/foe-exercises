@@ -89,9 +89,9 @@ def plays_prompt():
         return plays_prompt()
 
 
-def player_prompt():
+def player_prompt(round_nr):
     try:
-        print("Please select and option:")
+        print(f"{colors.cyan(f'[ROUND {round_nr}] ')}Please select and option:")
         print(f"{Choices(1).value}: {Choices(1).name}")
         print(f"{Choices(2).value}: {Choices(2).name}")
         print(f"{Choices(3).value}: {Choices(3).name}")
@@ -101,10 +101,10 @@ def player_prompt():
             return Choices(player_input)
         else:
             print(f"{colors.red('ERROR:')} The input is not a number between 1 and 3, please input a valid number.")
-            return player_prompt()
+            return player_prompt(round_nr)
     except ValueError:
         print(f"{colors.red('ERROR:')} The input is not a number between 1 and 3, please input a valid number.")
-        return player_prompt()
+        return player_prompt(round_nr)
 
 
 def determine_winner(player_hand, bot_hand):
@@ -132,7 +132,7 @@ if __name__ == "__main__":
     plays = plays_prompt()
 
     for i in range(plays):
-        player_hand = player_prompt()
+        player_hand = player_prompt(i + 1)
         bot_hand = Choices(random.randint(1, 3))
 
         round_result = determine_winner(player_hand, bot_hand)
