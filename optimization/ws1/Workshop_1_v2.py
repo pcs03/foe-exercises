@@ -21,80 +21,67 @@ Version 2:
 """
 import numpy as np
 
-
-
-    
 # 1.- Download the function vinc.py from brightspace and place it in the SAME
 #     directory as where this file is placed. You also need to import file from
 #     function. What do yo think this file is doing?. Feel free to open it
-#     and to take a look at it. 
-from vinc import v_direct
+#     and to take a look at it.
+from vinc import v_direct, v_inverse
 
-# 2.- Observe how the function is used    
-# boston = (lat,long) - Longitudes west of Greenwish are negative. 
+# 2.- Observe how the function is used
+# boston = (lat,long) - Longitudes west of Greenwish are negative.
 boston = (42.3541165, -71.0693514)
 newyork = (40.7791472, -73.9680804)
-x = v_direct(boston, newyork) # In m and degrees
-print("The distance between Boston and New York is: " + str(x[0])+ " m.")
+x = v_direct(boston, newyork)  # In m and degrees
+print("The distance between Boston and New York is: " + str(x[0]) + " m.")
 print("The initial azimuth  between Boston and New York is: " + str(x[1]) + " degrees")
 
 # 3.- Find the coordinates of Schipol, Los Angeles (LAX), and Narita (NAA)
-#     remember to find them in degrees. 
-ams_lat = ____
-ams_lon = ____
-AMS = (ams_lat, ams_lon)  # respect the order
+#     remember to find them in degrees.
+AMS = (52.308055555555555, 4.764166666666667)
+NAA = (35.765277777777776, 140.38555555555556)
+LAX = (33.94249722222222, -118.40805)
 
-naa_lat = ____
-naa_lon = ____
-NAA = (____, ____)
+zero = (30, 0.00001)
+zn = (30, 180)
 
-lalaland_lat = _____
-lalaland_lon = _____
-LAX = _____
 
-# 4.- Use the imported function v_direct to find the distances between AMS - LAX, 
-#     AMS - NAA, and LAX-NAA in meteres, kilometers and nautical miles. 
+# 4.- Use the imported function v_direct to find the distances between AMS - LAX,
+#     AMS - NAA, and LAX-NAA in meteres, kilometers and nautical miles.
 #     Print the results
-naa_lat = 35.77
-naa_lon = 140.38
-NAA = (naa_lat, naa_lon)
 
-lalaland_lat = 33.94252
-lalaland_lon = -118.4071
-LAX = (lalaland_lat, lalaland_lon)
-LAX_NAA = v_direct(LAX, NAA) # In m and degrees
+LAX_NAA = v_direct(zero, zn)  # In m and degrees
 print("The distance between Los Angeles and Narita is: " + str(LAX_NAA[0]) + " m.")
 print("The initial azimuth between Los Angeles and Narita is: " + str(LAX_NAA[1]) + " degrees")
 
 
 # 5.- Plot the waypoints as a scatter plot.
 
-# 6 .- Assign random distance values to trajectories 1 to three and use an embeded IF 
+# 6 .- Assign random distance values to trajectories 1 to three and use an embeded IF
 #      statement to find the longest one. Try different combinations to test your
 #      logic.
 
-trajectory_1 = ___
-trajectory_2 = ___
-trajectory_3 = ___
+# trajectory_1 = ___
+# trajectory_2 = ___
+# trajectory_3 = ___
 
-if ___:
-    if ___ :
-        ___
-    else:
-        ___
-else:
-    if ___:
-        ___
-    else:
-        ___
+# if ___:
+#     if ___:
+#         ___
+#     else:
+#         ___
+# else:
+#     if ___:
+#         ___
+#     else:
+#         ___
 
 
-# 7.- Open the Figure_1.png from Brigthspace. You are traveling from point A to point Z. 
+# 7.- Open the Figure_1.png from Brigthspace. You are traveling from point A to point Z.
 #     1.- Create an adjacent matrix showing the connections between different nodes.
 #         Think about how that adjacent matrix will be used. How does the algorithm know where
 #         "to go" next.
-#     Hint: You can rename your points to make it easier to make it easier to identify and 
-#            visualize in your adjancent matrix. 
+#     Hint: You can rename your points to make it easier to make it easier to identify and
+#            visualize in your adjancent matrix.
 
-# 8.- This is a short workshop. If you have not finished the exercises, this is a good moment to do so. 
+# 8.- This is a short workshop. If you have not finished the exercises, this is a good moment to do so.
 # *** WORKSHOP 1 ENDS ***
