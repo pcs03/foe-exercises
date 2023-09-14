@@ -1,0 +1,148 @@
+Reference Aircraft Type [String],Remarks [String],Wingspan Code [Integer],Type Description [String],Manufacturer [String],ICAO Type Code [String],IATA Type Code [String],Wake Turbulence Category [Enumeration:TAircraftWTC],Wake Turbulence Category (RECAT) [Enumeration:TAircraftWTCRecat],ICAO Code Letter [Enumeration:TAircraftICAOCodeLetter],Engine Type [Enumeration:TAircraftEngineType],Engine Count [Integer],Body Type [Enumeration:TAircraftBodyType],Aisle Type [Enumeration:TAircraftAisleType],Wingspan [Float],Length [Float],Height [Float],Nose Gear Position [Float],Wheelbase [Float],Geometry Name [String],Fuelburn Category [String]
+A330,,10,A330-300 (33P),Airbus,33P,33P,Heavy,D - Upper Medium,E,Jet,2,Wide-Body,Twin-Aisle,60.3 m,63.7 m,16.9 m,7.08 m,25.6 m,Airbus A330-300,6 - Small Heavy Jet (2-3 Engines)
+A340-200/300,,10,A340-300,Airbus,34P,34P,Heavy,D - Upper Medium,E,Jet,4,Wide-Body,Twin-Aisle,60.3 m,37.5 m,16.85 m,7.08 m,12.3 m,Airbus A340-600,6 - Small Heavy Jet (2-3 Engines)
+B737-900,,35,737 Max 9,Boeing,7M9,7M9,Medium,D - Upper Medium,C,Jet,2,Narrow-Body,Single-Aisle,35.9 m,42.2 m,12.3 m,4.1 m,17.2 m,Boeing B737-800,4 - Medium Jet (2 Engines)
+A380,,3,AN-124,Antonov,A124,A4F,Super Heavy,D - Upper Medium,F,Jet,4,Wide-Body,Twin-Aisle,73.3 m,69.1 m,20.8 m,7.08 m,25.6 m,Airbus A380-800,8 - Large Heavy Jet (4 Engines)
+A320,,35,A220-100,Airbus,A221,221,Medium,D - Upper Medium,C,Jet,2,Narrow-Body,Single-Aisle,35.1 m,35 m,11.5 m,4.6 m,12.28 m,Airbus A320-200,4 - Medium Jet (2 Engines)
+A320,,35,A220-100,Airbus,CS10,221,Medium,D - Upper Medium,C,Jet,2,Narrow-Body,Single-Aisle,35.1 m,35 m,11.5 m,4.6 m,12.28 m,Airbus A320-200,4 - Medium Jet (2 Engines)
+A320,,35,A220-300,Airbus,A223,223,Medium,D - Upper Medium,C,Jet,2,Narrow-Body,Single-Aisle,35.1 m,38.7 m,11.5 m,4.6 m,12.28 m,Airbus A320-200,4 - Medium Jet (2 Engines)
+A320,,35,A220-300,Airbus,CS30,223,Medium,D - Upper Medium,C,Jet,2,Narrow-Body,Single-Aisle,35.1 m,38.7 m,11.5 m,4.6 m,12.28 m,Airbus A320-200,4 - Medium Jet (2 Engines)
+A310,,25,A300-600 / 600C / 601,Airbus,A306,AB6,Heavy,D - Upper Medium,D,Jet,2,Wide-Body,Twin-Aisle,44.8 m,54.1 m,16.5 m,5.71 m,15.22 m,Airbus A320-200,6 - Small Heavy Jet (2-3 Engines)
+A310,,25,A300F,Airbus,A306,ABF,Heavy,D - Upper Medium,D,Jet,2,Wide-Body,Twin-Aisle,44.8 m,54.1 m,16.5 m,5.71 m,15.22 m,Airbus A320-200,6 - Small Heavy Jet (2-3 Engines)
+A310,,25,A300C4 / F4 Freighter,Airbus,A306,ABX,Heavy,D - Upper Medium,D,Jet,2,Wide-Body,Twin-Aisle,44.8 m,54.1 m,16.5 m,5.71 m,15.22 m,Airbus A320-200,6 - Small Heavy Jet (2-3 Engines)
+A310,,25,A600F,Airbus,A306,ABY,Heavy,D - Upper Medium,D,Jet,2,Wide-Body,Twin-Aisle,44.8 m,54.1 m,16.5 m,5.71 m,15.22 m,Airbus A320-200,6 - Small Heavy Jet (2-3 Engines)
+A310,,25,A310-200 Passenger,Airbus,A310,312,Heavy,D - Upper Medium,D,Jet,2,Wide-Body,Twin-Aisle,43.9 m,45.66 m,15.81 m,5.71 m,15.22 m,Airbus A320-200,6 - Small Heavy Jet (2-3 Engines)
+A310,,25,A310-300 Passenger,Airbus,A310,313,Heavy,D - Upper Medium,D,Jet,2,Wide-Body,Twin-Aisle,43.9 m,45.66 m,15.81 m,5.71 m,15.22 m,Airbus A320-200,6 - Small Heavy Jet (2-3 Engines)
+A310,,25,A310-200 Freighter,Airbus,A310,31X,Heavy,D - Upper Medium,D,Jet,2,Wide-Body,Twin-Aisle,43.9 m,47.21 m,15.81 m,5.9 m,15.74 m,Airbus A320-200,6 - Small Heavy Jet (2-3 Engines)
+A310,,25,A310-300 Freighter,Airbus,A310,31Y,Heavy,D - Upper Medium,D,Jet,2,Wide-Body,Twin-Aisle,43.9 m,47.21 m,15.81 m,5.9 m,15.74 m,Airbus A320-200,6 - Small Heavy Jet (2-3 Engines)
+A320,,35,A318,Airbus,A318,318,Medium,D - Upper Medium,C,Jet,2,Narrow-Body,Single-Aisle,35.8 m,31.45 m,12.56 m,3.93 m,10.26 m,Airbus A320-200,4 - Medium Jet (2 Engines)
+A320,,35,A319,Airbus,A319,319,Medium,D - Upper Medium,C,Jet,2,Narrow-Body,Single-Aisle,35.8 m,33.84 m,11.76 m,4.23 m,11.04 m,Airbus A320-200,4 - Medium Jet (2 Engines)
+A320,,35,A320,Airbus,A320,320,Medium,D - Upper Medium,C,Jet,2,Narrow-Body,Single-Aisle,34.1 m,36.83 m,11.76 m,4.6 m,12.28 m,Airbus A320-200,4 - Medium Jet (2 Engines)
+A320,,35,A320 (sharklets),Airbus,A320,32A,Medium,D - Upper Medium,C,Jet,2,Narrow-Body,Single-Aisle,35.8 m,36.83 m,11.76 m,4.6 m,12.28 m,Airbus A320-200,4 - Medium Jet (2 Engines)
+A320,,35,A320 Freighter,Airbus,A320,32F,Medium,D - Upper Medium,C,Jet,2,Narrow-Body,Single-Aisle,34.1 m,36.83 m,11.76 m,4.6 m,12.28 m,Airbus A320-200,4 - Medium Jet (2 Engines)
+A320,,35,A320,Airbus,A320,122,Medium,D - Upper Medium,C,Jet,2,Narrow-Body,Single-Aisle,34.1 m,36.83 m,11.76 m,4.6 m,12.28 m,Airbus A320-200,4 - Medium Jet (2 Engines)
+A320,,35,A320,Airbus,A320,127,Medium,D - Upper Medium,C,Jet,2,Narrow-Body,Single-Aisle,34.1 m,36.83 m,11.76 m,4.6 m,12.28 m,Airbus A320-200,4 - Medium Jet (2 Engines)
+A321,,35,A321,Airbus,A321,321,Medium,D - Upper Medium,C,Jet,2,Narrow-Body,Single-Aisle,34.1 m,44.51 m,11.8 m,5.56 m,16.92 m,Airbus A320-200,5 - Large Medium Jet (2 Engines)
+A321,,35,A321 (sharklets),Airbus,A321,32B,Medium,D - Upper Medium,C,Jet,2,Narrow-Body,Single-Aisle,35.8 m,44.51 m,11.8 m,5.56 m,16.92 m,Airbus A320-200,5 - Large Medium Jet (2 Engines)
+A321,,35,A20N,Airbus,A321,32N,Medium,D - Upper Medium,C,Jet,2,Narrow-Body,Single-Aisle,35.8 m,37.6 m,11.8 m,5.56 m,16.92 m,Airbus A320-200,5 - Large Medium Jet (2 Engines)
+A321,,35,A21N,Airbus,A321,32Q,Medium,D - Upper Medium,C,Jet,2,Narrow-Body,Single-Aisle,35.8 m,44.51 m,11.8 m,5.56 m,16.9 m,Airbus A320-200,5 - Large Medium Jet (2 Engines)
+A321,,35,A321 Freighter,Airbus,A321,32X,Medium,D - Upper Medium,C,Jet,2,Narrow-Body,Single-Aisle,35.8 m,44.51 m,11.8 m,5.56 m,16.92 m,Airbus A320-200,5 - Large Medium Jet (2 Engines)
+A330,,10,A330 - All models,Airbus,A330,330,Heavy,D - Upper Medium,E,Jet,2,Wide-Body,Twin-Aisle,60.3 m,63.7 m,16.9 m,7.08 m,25.6 m,Airbus A330-300,6 - Small Heavy Jet (2-3 Engines)
+A330,,10,A330-200,Airbus,A332,332,Heavy,D - Upper Medium,E,Jet,2,Wide-Body,Twin-Aisle,60.3 m,59 m,17.89 m,6.56 m,22.2 m,Airbus A330-300,6 - Small Heavy Jet (2-3 Engines)
+A330,,10,A330-200 Freighter,Airbus,A332,33X,Heavy,D - Upper Medium,E,Jet,2,Wide-Body,Twin-Aisle,60.3 m,59 m,17.89 m,6.56 m,22.2 m,Airbus A330-300,6 - Small Heavy Jet (2-3 Engines)
+A330,,10,A330-300,Airbus,A333,33C,Heavy,D - Upper Medium,E,Jet,2,Wide-Body,Twin-Aisle,60.3 m,63.7 m,16.9 m,7.08 m,25.6 m,Airbus A330-300,6 - Small Heavy Jet (2-3 Engines)
+A330,,10,A330-300,Airbus,A333,333,Heavy,D - Upper Medium,E,Jet,2,Wide-Body,Twin-Aisle,60.3 m,63.7 m,16.9 m,7.08 m,25.6 m,Airbus A330-300,6 - Small Heavy Jet (2-3 Engines)
+A330,,10,A330-300,Airbus,A333,33W,Heavy,D - Upper Medium,E,Jet,2,Wide-Body,Twin-Aisle,60.3 m,63.7 m,16.9 m,7.08 m,25.6 m,Airbus A330-300,6 - Small Heavy Jet (2-3 Engines)
+A330,,10,A330-900,Airbus,A339,339,Heavy,D - Upper Medium,E,Jet,2,Wide-Body,Twin-Aisle,64 m,63.7 m,16.9 m,7.08 m,25.6 m,Airbus A330-300,6 - Small Heavy Jet (2-3 Engines)
+A340-200/300,,10,A340-200,Airbus,A342,342,Heavy,D - Upper Medium,E,Jet,4,Wide-Body,Twin-Aisle,60.3 m,59.4 m,16.8 m,6.6 m,19.8 m,Airbus A340-600,6 - Small Heavy Jet (2-3 Engines)
+A340-200/300,,10,A340-300,Airbus,A343,343,Heavy,D - Upper Medium,E,Jet,4,Wide-Body,Twin-Aisle,60.3 m,63.7 m,16.85 m,7.08 m,21.23 m,Airbus A340-600,6 - Small Heavy Jet (2-3 Engines)
+A340-500,,5,A340-500,Airbus,A345,345,Heavy,D - Upper Medium,E,Jet,4,Wide-Body,Twin-Aisle,63.45 m,67.9 m,17.8 m,7.54 m,22.63 m,Airbus A340-600,7 - Heavy Jet (2-4 Engines)
+A340-600,,5,A340-600,Airbus,A346,346,Heavy,D - Upper Medium,E,Jet,4,Wide-Body,Twin-Aisle,63.45 m,74.9 m,17.8 m,8.32 m,24.97 m,Airbus A340-600,7 - Heavy Jet (2-4 Engines)
+A350-1000,,5,A350-1000,Airbus,A351,351,Heavy,D - Upper Medium,E,Jet,2,Wide-Body,Twin-Aisle,64.75 m,73.79 m,17.08 m,4.63 m,28.66 m,Airbus A350-900,6 - Small Heavy Jet (2-3 Engines)
+A350-900,,5,A350-900,Airbus,A358,359,Heavy,D - Upper Medium,E,Jet,2,Wide-Body,Twin-Aisle,64.75 m,66.8 m,17.05 m,4.63 m,28.66 m,Airbus A350-900,6 - Small Heavy Jet (2-3 Engines)
+A350-800,,5,A350-800,Airbus,A359,358,Heavy,D - Upper Medium,E,Jet,2,Wide-Body,Twin-Aisle,64.75 m,60.54 m,17.05 m,4.63 m,28.66 m,Airbus A350-900,6 - Small Heavy Jet (2-3 Engines)
+A380,,3,A380-800 Passenger,Airbus,A388,388,Super Heavy,D - Upper Medium,F,Jet,4,Wide-Body,Twin-Aisle,79.75 m,72.73 m,24.1 m,8.08 m,24.24 m,Airbus A380-800,8 - Large Heavy Jet (4 Engines)
+A380,,3,A380-800F Freighter,Airbus,A388,38F,Super Heavy,D - Upper Medium,F,Jet,4,Wide-Body,Twin-Aisle,79.75 m,72.73 m,24.1 m,8.08 m,24.24 m,Airbus A380-800,8 - Large Heavy Jet (4 Engines)
+AT72,,35,AN-12 Freighter,Antonov,AN12,ANF,Medium,D - Upper Medium,D,Turboprop,4,Narrow-Body,Single-Aisle,38 m,33 m,10.5 m,4.62 m,12.33 m,ATR 72,2 - Turboprop
+AT72,,45,AN-26,Antonov,AN26,A26,Medium,E - Lower Medium,C,Turboprop,2,Narrow-Body,Single-Aisle,29.9 m,23.8 m,8.6 m,2.98 m,7.93 m,ATR 72,2 - Turboprop
+AT72,,45,AN-26 / AN-30 / AN-32,Antonov,AN26,AN6,Medium,E - Lower Medium,C,Turboprop,2,Narrow-Body,Single-Aisle,29.9 m,23.8 m,8.6 m,2.98 m,7.93 m,ATR 72,2 - Turboprop
+B737-500,,45,AN-72 / AN-74,Antonov,AN7,AN7,Medium,E - Lower Medium,C,Jet,2,Narrow-Body,Single-Aisle,31.9 m,28.1 m,8.7 m,3.51 m,9.36 m,Airbus A320-200,3 - Regional Jet
+AT72,,55,42-300 / 320,ALENIA,AT43,AT4,Medium,D - Upper Medium,C,Turboprop,2,Narrow-Body,Single-Aisle,24.6 m,22.7 m,7.6 m,2.83 m,8.8 m,ATR 72,2 - Turboprop
+AT72,,55,42-500,ALENIA,AT45,AT5,Medium,D - Upper Medium,C,Turboprop,2,Narrow-Body,Single-Aisle,24.6 m,22.7 m,7.6 m,2.83 m,8.8 m,ATR 72,2 - Turboprop
+AT72,,50,72,ALENIA,AT72,AT7,Medium,D - Upper Medium,C,Turboprop,2,Narrow-Body,Single-Aisle,27.1 m,27.2 m,7.7 m,3.4 m,10.8 m,ATR 72,2 - Turboprop
+AT72,,80,AIRLINER 1900 / 1900C,BEECHCRAFT,B190,BES,Medium,D - Upper Medium,B,Turboprop,2,Narrow-Body,Single-Aisle,16.6 m,17.63 m,4.72 m,3 m,8 m,ATR 72,4 - Medium Jet (2 Engines)
+B737,,35,737-MAX,Boeing,B38M,7M8,Medium,D - Upper Medium,C,Jet,2,Narrow-Body,Single-Aisle,35.9 m,39.5 m,12.42 m,4.1 m,12.6 m,Boeing B737-800,4 - Medium Jet (2 Engines)
+BAe-146,,50,BAe 146-200,BRITISH AEROSPACE,B462,142,Medium,D - Upper Medium,C,Jet,4,Narrow-Body,Single-Aisle,26.3 m,28.6 m,8.6 m,3.87 m,12.52 m,Airbus A320-200,3 - Regional Jet
+BAe-146,,50,BAe 146 Freighter (-200QT & QC),BRITISH AEROSPACE,B462,14Y,Medium,D - Upper Medium,C,Jet,4,Narrow-Body,Single-Aisle,26.3 m,28.6 m,8.6 m,3.87 m,12.52 m,Airbus A320-200,3 - Regional Jet
+BAe-146,,50,146-300 Passenger,BRITISH AEROSPACE,B463,143,Medium,D - Upper Medium,C,Jet,4,Narrow-Body,Single-Aisle,26.3 m,31 m,8.6 m,3.87 m,12.52 m,Airbus A320-200,3 - Regional Jet
+B717,,45,717-200,Boeing,B712,717,Medium,D - Upper Medium,C,Jet,2,Narrow-Body,Single-Aisle,28.4 m,37.8 m,9 m,2.3 m,17.6 m,Bombardier CRJ-200,4 - Medium Jet (2 Engines)
+B737-500,,45,737-200 Mixed Configuration,Boeing,B732,73L,Medium,D - Upper Medium,C,Jet,2,Narrow-Body,Single-Aisle,28.4 m,30.5 m,11.4 m,4 m,11.4 m,Boeing B737-800,4 - Medium Jet (2 Engines)
+B737-500,,45,737-200 Freighter,Boeing,B732,73X,Medium,D - Upper Medium,C,Jet,2,Narrow-Body,Single-Aisle,28.4 m,30.5 m,11.4 m,4 m,11.4 m,Boeing B737-800,4 - Medium Jet (2 Engines)
+B737-500,,45,737-300 Passenger,Boeing,B733,733,Medium,D - Upper Medium,C,Jet,2,Narrow-Body,Single-Aisle,28.9 m,33.4 m,11.1 m,4 m,12.5 m,Boeing B737-800,4 - Medium Jet (2 Engines)
+B737-500,,45,737-300 (winglets) Passenger,Boeing,B733,73C,Medium,D - Upper Medium,C,Jet,2,Narrow-Body,Single-Aisle,31.2 m,33.4 m,11.1 m,4 m,12.5 m,Boeing B737-800,4 - Medium Jet (2 Engines)
+B737-500,,45,737-400 Passenger,Boeing,B734,734,Medium,D - Upper Medium,C,Jet,2,Narrow-Body,Single-Aisle,28.88 m,36.4 m,11.1 m,4.6 m,12.13 m,Boeing B737-800,4 - Medium Jet (2 Engines)
+B737-500,,45,737-400 Freighter,Boeing,B734,73P,Medium,D - Upper Medium,C,Jet,2,Narrow-Body,Single-Aisle,28.88 m,36.4 m,11.1 m,4.6 m,12.13 m,Boeing B737-800,4 - Medium Jet (2 Engines)
+B737-500,,45,737-400 Mixed Configuration,Boeing,B734,73Q,Medium,D - Upper Medium,C,Jet,2,Narrow-Body,Single-Aisle,28.88 m,36.4 m,11.1 m,4.6 m,12.13 m,Boeing B737-800,4 - Medium Jet (2 Engines)
+B737-500,,45,737-500 Passenger,Boeing,B735,735,Medium,D - Upper Medium,C,Jet,2,Narrow-Body,Single-Aisle,28.9 m,31 m,11.1 m,4.1 m,11.1 m,Boeing B737-800,4 - Medium Jet (2 Engines)
+B737,,35,737-600 Passenger,Boeing,B736,736,Medium,D - Upper Medium,C,Jet,2,Narrow-Body,Single-Aisle,34.3 m,31.2 m,12.7 m,4.1 m,11.2 m,Boeing B737-800,4 - Medium Jet (2 Engines)
+B737,,35,737-700 Passenger,Boeing,B737,73G,Medium,D - Upper Medium,C,Jet,2,Narrow-Body,Single-Aisle,34.3 m,33.6 m,12.7 m,4.1 m,12.6 m,Boeing B737-800,4 - Medium Jet (2 Engines)
+B737,,35,737-700 (winglets) Passenger/BBJ1,Boeing,B737,73W,Medium,D - Upper Medium,C,Jet,2,Narrow-Body,Single-Aisle,35.8 m,33.6 m,12.7 m,4.1 m,12.6 m,Boeing B737-800,4 - Medium Jet (2 Engines)
+B737,,35,737-800 Passenger,Boeing,B738,738,Medium,D - Upper Medium,C,Jet,2,Narrow-Body,Single-Aisle,34.3 m,39.5 m,12.6 m,4.1 m,15.6 m,Boeing B737-800,4 - Medium Jet (2 Engines)
+B737,,35,737-800 (winglets) Passenger/BBJ2,Boeing,B738,73H,Medium,D - Upper Medium,C,Jet,2,Narrow-Body,Single-Aisle,35.8 m,39.5 m,12.6 m,4.1 m,15.6 m,Boeing B737-800,4 - Medium Jet (2 Engines)
+B737,,35,737-800 Freighter,Boeing,B738,73K,Medium,D - Upper Medium,C,Jet,2,Narrow-Body,Single-Aisle,34.3 m,39.5 m,12.6 m,4.1 m,15.6 m,Boeing B737-800,4 - Medium Jet (2 Engines)
+B737,,35,737-800 Freighter,Boeing,B738,7S8,Medium,D - Upper Medium,C,Jet,2,Narrow-Body,Single-Aisle,34.3 m,39.5 m,12.6 m,4.1 m,15.6 m,Boeing B737-800,4 - Medium Jet (2 Engines)
+B737-900,,35,737-900 Passenger,Boeing,B739,739,Medium,D - Upper Medium,C,Jet,2,Narrow-Body,Single-Aisle,34.3 m,42.1 m,12.6 m,4.1 m,17.2 m,Boeing B737-800,4 - Medium Jet (2 Engines)
+B737-900,,35,737-900 (winglets) Passenger/BBJ3,Boeing,B739,73J,Medium,D - Upper Medium,C,Jet,2,Narrow-Body,Single-Aisle,35.8 m,42.1 m,12.6 m,4.1 m,17.2 m,Boeing B737-800,4 - Medium Jet (2 Engines)
+B747-SP,,10,747-100 Passenger,Boeing,B741,741,Heavy,D - Upper Medium,E,Jet,4,Wide-Body,Twin-Aisle,59.6 m,69.8 m,19.6 m,7.8 m,25.6 m,Boeing B747-400,8 - Large Heavy Jet (4 Engines)
+B747-SP,,10,747-100 Freighter,Boeing,B741,74T,Heavy,D - Upper Medium,E,Jet,4,Wide-Body,Twin-Aisle,59.6 m,69.8 m,19.7 m,7.8 m,25.6 m,Boeing B747-400,8 - Large Heavy Jet (4 Engines)
+B747-200/300,,10,747-200 Passenger,Boeing,B742,742,Heavy,D - Upper Medium,E,Jet,4,Wide-Body,Twin-Aisle,59.6 m,69.8 m,19.6 m,7.8 m,25.6 m,Boeing B747-400,8 - Large Heavy Jet (4 Engines)
+B747-200/300,,10,747-200 Mixed Configuration,Boeing,B742,74C,Heavy,D - Upper Medium,E,Jet,4,Wide-Body,Twin-Aisle,59.6 m,69.8 m,19.7 m,7.8 m,25.6 m,Boeing B747-400,8 - Large Heavy Jet (4 Engines)
+B747-200/300,,10,747-200 Freighter,Boeing,B742,74X,Heavy,D - Upper Medium,E,Jet,4,Wide-Body,Twin-Aisle,59.6 m,69.8 m,19.6 m,7.8 m,25.6 m,Boeing B747-400,8 - Large Heavy Jet (4 Engines)
+B747-200/300,,10,747-300 / 747-100/200 SUD Passenger,Boeing,B743,743,Heavy,D - Upper Medium,E,Jet,4,Wide-Body,Twin-Aisle,59.6 m,69.8 m,19.6 m,7.8 m,25.6 m,Boeing B747-400,8 - Large Heavy Jet (4 Engines)
+B747-200/300,,10,747-300 / 747-200 SUD Mixed Configuration,Boeing,B743,74D,Heavy,D - Upper Medium,E,Jet,4,Wide-Body,Twin-Aisle,59.6 m,69.8 m,19.6 m,7.8 m,25.6 m,Boeing B747-400,8 - Large Heavy Jet (4 Engines)
+B747-400,,10,747-300 / 747-200 SUD Freighter,Boeing,B743,74U,Heavy,D - Upper Medium,E,Jet,4,Wide-Body,Twin-Aisle,59.6 m,69.8 m,19.6 m,7.8 m,25.6 m,Boeing B747-400,8 - Large Heavy Jet (4 Engines)
+B747-400,,5,747-400 Passenger,Boeing,B744,744,Heavy,D - Upper Medium,E,Jet,4,Wide-Body,Twin-Aisle,64.9 m,68.6 m,19.5 m,7.8 m,25.6 m,Boeing B747-400,8 - Large Heavy Jet (4 Engines)
+B747-400,,5,747-400 Mixed Configuration,Boeing,B744,74E,Heavy,D - Upper Medium,E,Jet,4,Wide-Body,Twin-Aisle,64.9 m,68.6 m,19.5 m,7.8 m,25.6 m,Boeing B747-400,8 - Large Heavy Jet (4 Engines)
+B747-400,,5,747-400 Freighter,Boeing,B744,74Y,Heavy,D - Upper Medium,E,Jet,4,Wide-Body,Twin-Aisle,64.9 m,69.9 m,19.5 m,7.8 m,25.6 m,Boeing B747-400,8 - Large Heavy Jet (4 Engines)
+B747-800,,3,747-8I Passenger,Boeing,B748,74H,Heavy,D - Upper Medium,F,Jet,4,Wide-Body,Twin-Aisle,68.4 m,75.2 m,19.5 m,7.8 m,29.7 m,Boeing B747-400,8 - Large Heavy Jet (4 Engines)
+B747-800,,3,747-8F Freighter,Boeing,B748,74N,Heavy,D - Upper Medium,F,Jet,4,Wide-Body,Twin-Aisle,68.4 m,75.2 m,19.6 m,7.8 m,29.7 m,Boeing B747-400,8 - Large Heavy Jet (4 Engines)
+B747-400,,5,747-400 (Domestic) Passenger,Boeing,B74D,74J,Heavy,D - Upper Medium,E,Jet,4,Wide-Body,Twin-Aisle,59.3 m,69.9 m,19.6 m,7.8 m,25.6 m,Boeing B747-400,8 - Large Heavy Jet (4 Engines)
+B747-400,,5,747-400 Freighter,Boeing,B74F,74F,Heavy,D - Upper Medium,E,Jet,4,Wide-Body,Twin-Aisle,64.9 m,68.6 m,19.5 m,7.8 m,25.6 m,Boeing B747-400,8 - Large Heavy Jet (4 Engines)
+B747-400,,10,747SR Passenger,Boeing,B74R,74R,Heavy,D - Upper Medium,E,Jet,4,Wide-Body,Twin-Aisle,59.6 m,70.6 m,19.3 m,7.8 m,20.5 m,Boeing B747-400,8 - Large Heavy Jet (4 Engines)
+B747-SP,,10,747SR Freighter,Boeing,B74R,74V,Heavy,D - Upper Medium,E,Jet,4,Wide-Body,Twin-Aisle,59.6 m,70.6 m,19.3 m,7.8 m,29.7 m,Boeing B747-400,8 - Large Heavy Jet (4 Engines)
+B747-SP,,10,747SP Passenger,Boeing,B74S,74L,Heavy,D - Upper Medium,E,Jet,4,Wide-Body,Twin-Aisle,59.6 m,55.6 m,20.1 m,7.8 m,20.5 m,Boeing B747-400,8 - Large Heavy Jet (4 Engines)
+B757-200,,30,757-200 Passenger,Boeing,B752,752,Medium,D - Upper Medium,D,Jet,2,Wide-Body,Single-Aisle,38.1 m,47.3 m,13.7 m,5.9 m,18.3 m,Boeing B737-800,5 - Large Medium Jet (2 Engines)
+B757-300,,30,757-300 Passenger,Boeing,B753,753,Medium,D - Upper Medium,D,Jet,2,Wide-Body,Single-Aisle,38 m,54.4 m,13.6 m,5.9 m,22.3 m,Boeing B737-800,5 - Large Medium Jet (2 Engines)
+B757-200,,30,757-200 Winglets Passenger,Boeing,B75W,75W,Medium,D - Upper Medium,D,Jet,2,Wide-Body,Single-Aisle,38.1 m,47.3 m,13.7 m,5.9 m,18.3 m,Boeing B737-800,5 - Large Medium Jet (2 Engines)
+B767,,15,767-200 Passenger,Boeing,B762,762,Heavy,D - Upper Medium,D,Jet,2,Wide-Body,Twin-Aisle,47.6 m,48.5 m,16.1 m,4.6 m,19.7 m,Boeing B777-300,6 - Small Heavy Jet (2-3 Engines)
+B767,,15,767-300 Passenger,Boeing,B763,763,Heavy,D - Upper Medium,D,Jet,2,Wide-Body,Twin-Aisle,47.6 m,54.9 m,16 m,4.6 m,22.8 m,Boeing B777-300,6 - Small Heavy Jet (2-3 Engines)
+B767,,15,767-300 Freighter,Boeing,B763,76Y,Heavy,D - Upper Medium,D,Jet,2,Wide-Body,Twin-Aisle,47.6 m,54.9 m,16.1 m,4.6 m,22.8 m,Boeing B777-300,6 - Small Heavy Jet (2-3 Engines)
+B767,,15,767-400 Passenger,Boeing,B764,764,Heavy,D - Upper Medium,D,Jet,2,Wide-Body,Twin-Aisle,51.9 m,61.4 m,17 m,4.6 m,26.2 m,Boeing B777-300,6 - Small Heavy Jet (2-3 Engines)
+B767,,15,767-300 Winglets Passenger,Boeing,B76W,76W,Heavy,D - Upper Medium,D,Jet,2,Wide-Body,Twin-Aisle,47.6 m,54.9 m,16 m,4.6 m,22.8 m,Boeing B777-300,6 - Small Heavy Jet (2-3 Engines)
+B777-200,T7 1277 (LFLL to ZRH): Aircraft Type B190 not found in Aircraft Database. Using default Aircraft Information. | T7 1278 (ZRH to LFLL): Aircraft Type B190 not found in Aircraft Database. Using default Aircraft Information. | KE 9577 (LOWW to ZRH): Aircraft Type 77X not found in Aircraft Database. Using default Aircraft Information. | KE 9578 (ZRH to RKSI): Aircraft Type 77X not found in Aircraft Database. Using default Aircraft Information. | T7 1271 (LFLL to ZRH): Aircraft Type B190 not found in Aircraft Database. Using default Aircraft Information. | T7 1272 (ZRH to LFLL): Aircraft Type B190 not found in Aircraft Database. Using default Aircraft Information. | T7 1277 (1) (LFLL to ZRH): Aircraft Type B190 not found in Aircraft Database. Using default Aircraft Information. | T7 1278 (1) (ZRH to LFLL): Aircraft Type B190 not found in Aircraft Database. Using default Aircraft Information.,5,777-200/ 200ER,Boeing,B772,772,Heavy,D - Upper Medium,E,Jet,2,Wide-Body,Twin-Aisle,60.9 m,63.7 m,18.8 m,5.9 m,25.9 m,Boeing B777-300,6 - Small Heavy Jet (2-3 Engines)
+B777-200,,5,B777-200F FREIGHTER,Boeing,B772,77X,Heavy,D - Upper Medium,E,Jet,2,Wide-Body,Twin-Aisle,60.93 m,63.73 m,18.51 m,5.9 m,25.9 m,Boeing B777-300,4 - Medium Jet (2 Engines)
+B777-300,,5,777-300,Boeing,B773,773,Heavy,D - Upper Medium,E,Jet,2,Wide-Body,Twin-Aisle,60.9 m,73.9 m,18.8 m,5.9 m,31.2 m,Boeing B777-300,7 - Heavy Jet (2-4 Engines)
+B777-200,,5,777-200LR,Boeing,B77L,77L,Heavy,D - Upper Medium,E,Jet,2,Wide-Body,Twin-Aisle,60.9 m,63.7 m,18.8 m,5.9 m,25.9 m,Boeing B777-300,6 - Small Heavy Jet (2-3 Engines)
+B787,,10,B787-10,Boeing,B781,781,Heavy,D - Upper Medium,E,Jet,2,Wide-Body,Single-Aisle,60.1 m,68.3 m,17.07 m,6.98 m,25.82 m,Boeing B787-8,4 - Medium Jet (2 Engines)
+B787,,10,787-8,Boeing,B788,788,Heavy,D - Upper Medium,E,Jet,2,Wide-Body,Twin-Aisle,60.1 m,56.7 m,17.1 m,5.4 m,22.8 m,Boeing B787-8,6 - Small Heavy Jet (2-3 Engines)
+B787,,10,B787-9,Boeing,B789,789,Heavy,D - Upper Medium,E,Jet,2,Wide-Body,Twin-Aisle,60.1 m,62.82 m,17.07 m,6.98 m,25.82 m,Boeing B787-8,4 - Medium Jet (2 Engines)
+CS-100/300,,35,A221,BOMBARDIER,BCS1,CS1,Medium,D - Upper Medium,C,Jet,2,Narrow-Body,Single-Aisle,35.1 m,35 m,11.5 m,0.1 m,11.6 m,Airbus A320-200,4 - Medium Jet (2 Engines)
+CS-100/300,,35,A223,BOMBARDIER,BCS3,CS3,Medium,D - Upper Medium,C,Jet,2,Narrow-Body,Single-Aisle,38.7 m,35 m,11.5 m,0.1 m,11.6 m,Airbus A320-200,4 - Medium Jet (2 Engines)
+ERJ 170,,50,Cessna 206,Cessna,C206,CNC,Light,F - Light,A,Prop,1,Narrow-Body,Single-Aisle,11 m,8.6 m,2.8 m,1.05 m,1.65 m,Cessna 172,1 - Business Jet
+AT72,,80,Cessna 208B Freighter,Cessna,C208,CNF,Light,F - Light,A,Prop,1,Narrow-Body,Single-Aisle,15.9 m,11.5 m,4.3 m,3.29 m,8.78 m,Cessna 172,1 - Business Jet
+ERJ 170,,50,Cessna 750 Citation X,Cessna,C750,CN7,Medium,D - Upper Medium,B,Jet,2,Narrow-Body,Single-Aisle,19.5 m,22 m,5.1 m,3.29 m,8.78 m,Bombardier CRJ-200,3 - Regional Jet
+CRJ,,45,Regional Jet 100,CANADAIR,CRJ1,CR1,Medium,D - Upper Medium,B,Jet,2,Narrow-Body,Single-Aisle,21.2 m,26.8 m,6.3 m,2.03 m,10.84 m,Bombardier CRJ-200,3 - Regional Jet
+CRJ,,45,Regional Jet 200,CANADAIR,CRJ2,CR2,Medium,D - Upper Medium,B,Jet,2,Narrow-Body,Single-Aisle,21.2 m,26.8 m,6.3 m,2.03 m,10.84 m,Bombardier CRJ-200,3 - Regional Jet
+CRJ,,45,Regional Jet 200,CANADAIR,CRJ2,CRJ,Medium,D - Upper Medium,B,Jet,2,Narrow-Body,Single-Aisle,21.2 m,26.8 m,6.3 m,2.03 m,10.84 m,Bombardier CRJ-200,3 - Regional Jet
+CRJ,,45,Regional Jet 700,CANADAIR,CRJ7,CR7,Medium,D - Upper Medium,B,Jet,2,Narrow-Body,Single-Aisle,23.2 m,32.5 m,7.6 m,2.03 m,10.84 m,Bombardier CRJ-200,3 - Regional Jet
+CRJ,,45,Regional Jet 705,CANADAIR,CRJ9,CRA,Medium,D - Upper Medium,B,Jet,2,Narrow-Body,Single-Aisle,23.3 m,36.2 m,7.5 m,4.53 m,12.07 m,Bombardier CRJ-200,3 - Regional Jet
+CRJ,,45,Regional Jet 900,CANADAIR,CRJ9,CR9,Medium,D - Upper Medium,B,Jet,2,Narrow-Body,Single-Aisle,23.3 m,36.2 m,7.5 m,2.27 m,12.12 m,Bombardier CRJ-200,3 - Regional Jet
+CRJ,,45,Regional Jet 1000,BOMBARDIER,CRJX,CRK,Medium,D - Upper Medium,C,Jet,2,Narrow-Body,Single-Aisle,26.2 m,39.1 m,7.5 m,4.89 m,13.03 m,Bombardier CRJ-200,3 - Regional Jet
+ERJ 170,,50,Dornier 328,Dornier,D328,D38,Medium,D - Upper Medium,B,Turboprop,2,Narrow-Body,Single-Aisle,21 m,21.2 m,7.1 m,2.03 m,10.84 m,ATR 72,2 - Turboprop
+A320,,35,Default Aircraft,,Default,Default,Medium,D - Upper Medium,C,Jet,2,Narrow-Body,Single-Aisle,35.2 m,37.5 m,11.76 m,4.94 m,12.3 m,Airbus A320-200,4 - Medium Jet (2 Engines)
+DHC-8,,55,DHC-8-300 Dash 8 / 8Q,BOMBARDIER,DH8C,DH3,Medium,D - Upper Medium,C,Turboprop,2,Narrow-Body,Single-Aisle,27.43 m,25.68 m,7.49 m,3.21 m,10.01 m,ATR 72,2 - Turboprop
+DHC-8,,45,DHC-8-400 Dash 8Q,BOMBARDIER,DH8D,DH4,Medium,D - Upper Medium,C,Turboprop,2,Narrow-Body,Single-Aisle,28.4 m,32.81 m,8.3 m,4.11 m,13.94 m,ATR 72,2 - Turboprop
+DHC-8,,45,DHC-8-400 Dash 8Q Freighter,BOMBARDIER,DH8D,D4X,Medium,D - Upper Medium,C,Turboprop,2,Narrow-Body,Single-Aisle,28.4 m,32.81 m,8.3 m,4.1 m,10.94 m,ATR 72,2 - Turboprop
+ERJ 170,,50,RJ135,Embraer,E135,ER3,Medium,D - Upper Medium,B,Jet,2,Narrow-Body,Single-Aisle,20.2 m,26.3 m,6.7 m,3.29 m,8.78 m,Bombardier CRJ-200,3 - Regional Jet
+ERJ 170,,50,RJ140,Embraer,E135,ERD,Medium,D - Upper Medium,B,Jet,2,Narrow-Body,Single-Aisle,20.2 m,26.3 m,6.7 m,3.29 m,8.77 m,Bombardier CRJ-200,3 - Regional Jet
+ERJ 170,,50,RJ145,Embraer,E145,ER4,Medium,D - Upper Medium,B,Jet,2,Narrow-Body,Single-Aisle,20.2 m,29.8 m,6.7 m,3.72 m,9.93 m,Bombardier CRJ-200,3 - Regional Jet
+ERJ 170,,49,170,Embraer,E170,E70,Medium,D - Upper Medium,C,Jet,2,Narrow-Body,Single-Aisle,26 m,29.9 m,9.85 m,3.74 m,9.97 m,Airbus A320-200,3 - Regional Jet
+ERJ 170,,49,170,Embraer,E170,E7W,Medium,D - Upper Medium,C,Jet,2,Narrow-Body,Single-Aisle,26 m,29.9 m,9.85 m,3.74 m,9.97 m,Airbus A320-200,3 - Regional Jet
+ERJ 170,,45,175,Embraer,E175,E75,Medium,D - Upper Medium,C,Jet,2,Narrow-Body,Single-Aisle,26 m,29.9 m,9.85 m,3.74 m,9.97 m,Airbus A320-200,3 - Regional Jet
+ERJ 190,,45,190,Embraer,E190,295,Medium,D - Upper Medium,C,Jet,2,Narrow-Body,Single-Aisle,28.72 m,36.24 m,10.57 m,4.53 m,12.08 m,Airbus A320-200,3 - Regional Jet
+ERJ 190,,45,190,Embraer,E190,E90,Medium,D - Upper Medium,C,Jet,2,Narrow-Body,Single-Aisle,28.72 m,36.24 m,10.57 m,4.53 m,12.08 m,Airbus A320-200,3 - Regional Jet
+ERJ 190,,45,195,Embraer,E195,E95,Medium,D - Upper Medium,C,Jet,2,Narrow-Body,Single-Aisle,28.72 m,36.24 m,10.57 m,4.53 m,12.08 m,Airbus A320-200,3 - Regional Jet
+ERJ 190-E2,,35,290,Embraer,E290,290,Medium,D - Upper Medium,C,Jet,2,Narrow-Body,Single-Aisle,33.72 m,36.24 m,10.95 m,4.76 m,12.8 m,Airbus A320-200,4 - Medium Jet (2 Engines)
+F70/F100,,45,100,FOKKER,F100,100,Medium,D - Upper Medium,C,Jet,2,Narrow-Body,Single-Aisle,28.1 m,35.5 m,8.5 m,4.44 m,14.01 m,Bombardier CRJ-200,4 - Medium Jet (2 Engines)
+F70/F100,,55,FOKKER 50,FOKKER,F50,F50,Medium,A - Super Heavy,C,Turboprop,0,Narrow-Body,Single-Aisle,35.2 m,37.5 m,8.32 m,0.1 m,0.1 m,Bombardier CRJ-200,3 - Regional Jet
+F70/F100,,45,70,FOKKER,F70,F70,Medium,D - Upper Medium,C,Jet,2,Narrow-Body,Single-Aisle,28.1 m,30.9 m,8.5 m,3.86 m,11.54 m,Bombardier CRJ-200,3 - Regional Jet
+B767,,15,Iljuschin Il-76,Iljuschin,IL76,IL7,Heavy,D - Upper Medium,D,Jet,4,Wide-Body,Twin-Aisle,50.5 m,46.6 m,14.8 m,4.6 m,26.2 m,Boeing B747-400,6 - Small Heavy Jet (2-3 Engines)
+B767,,15,MD-11,McDonnell Douglas,MD11,M11,Heavy,D - Upper Medium,D,Jet,3,Wide-Body,Twin-Aisle,51.7 m,61.2 m,18 m,4.6 m,26.2 m,Airbus A320-200,6 - Small Heavy Jet (2-3 Engines)
+B767,,15,MD-11 Freighter,McDonnell Douglas,MD11,M1F,Heavy,D - Upper Medium,D,Jet,3,Wide-Body,Twin-Aisle,51.7 m,61.2 m,18 m,4.6 m,26.2 m,Airbus A320-200,6 - Small Heavy Jet (2-3 Engines)
+MD82,,40,MD-82,McDonnell Douglas,MD82,M82,Medium,D - Upper Medium,C,Jet,2,Narrow-Body,Single-Aisle,32.82 m,45.06 m,9.02 m,4.76 m,12.3 m,Airbus A320-200,4 - Medium Jet (2 Engines)
+AT72,,80,,Pilatus,PC12,PL2,Light,F - Light,A,Turboprop,1,Narrow-Body,Single-Aisle,16.3 m,14.4 m,4.3 m,1.05 m,1.65 m,Cessna 172,1 - Business Jet
+RJ 70-100,,50,RJ100,BAE SYSTEMS,RJ1H,AR1,Medium,D - Upper Medium,C,Jet,4,Narrow-Body,Single-Aisle,26.34 m,31 m,8.61 m,3.88 m,10.33 m,Airbus A320-200,3 - Regional Jet
+RJ 70-100,,50,RJ85,BAE SYSTEMS,RJ85,AR8,Medium,D - Upper Medium,C,Jet,4,Narrow-Body,Single-Aisle,26.34 m,28.55 m,8.61 m,3.57 m,9.52 m,Airbus A320-200,3 - Regional Jet
+BAe-146,,50,Saab 2000,Saab,SB20,GAA,Medium,D - Upper Medium,C,Turboprop,2,Narrow-Body,Single-Aisle,24.8 m,27.3 m,7.7 m,3 m,8 m,ATR 72,4 - Medium Jet (2 Engines)
+BAe-146,,50,Saab 340,Saab,SF34,SF3,Medium,D - Upper Medium,C,Turboprop,2,Narrow-Body,Single-Aisle,21.4 m,19.7 m,7 m,3 m,8 m,ATR 72,4 - Medium Jet (2 Engines)
+BAe-146,,50,Fairchild SA26,Fairchild,SWM,SW3,Light,F - Light,A,Turboprop,2,Narrow-Body,Single-Aisle,14.1 m,18.1 m,5.1 m,1.05 m,1.65 m,Cessna 172,1 - Business Jet
