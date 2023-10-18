@@ -3,4 +3,3 @@ __pycache__
 .vscode
 module
 performance/qty.py
-data/stackoverflow/survey_results_public.csv
