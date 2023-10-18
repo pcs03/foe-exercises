@@ -17,17 +17,8 @@ A distance factor of 0.9 simulates tailwinds thus the distance is reduced.
 
 This is your DATA (See Figure 2 in DLO to understand this):
     ALL IN DEGREES
-lon_lef = [4.76, 4.87, 3.69, 2.36, 2.74, 2.88, 2.69]
-lat_lef = [52.30, 52.05, 50.31, 48.41, 46.09, 43.82, 41.88]
-lon_mid = [4.76, 4.79, 3.62, 2.287, 2.67, 2.81, 2.69]
-lat_mid = [52.30, 52.04, 50.30, 48.39, 46.09, 43.81, 41.88]
-lon_rig = [4.76, 4.72, 3.55, 2.21, 2.59, 2.73, 2.69]
-lat_rig = [52.30, 52.04, 50.30, 48.39, 46.09, 43.81, 41.88]
 
     NO UNITS (Wind Factor)
-midDF = [1.1, 1.2, 1, 0.96, 0.99, 0.98, 0.95]
-lefDF = [1.1, 0.95, 0.96, 0.99, 1.2, 1.2, 0.95]
-rigDF = [1.1, 0.9, 0.97, 1, 1.2, 1.2, 0.95]
 
 lon_mid and lat_mid are the coordinates for the reference trajectory
 lon_rig and lat rit are the coordinates for the trajectory at the right
@@ -45,28 +36,57 @@ Then load the v_direct and v_inverse functions.
 from math import dist
 
 import pandas as pd
+import qty
+from matplotlib.cbook import Stack
 from vinc import v_direct, v_inverse
 
 """
 2.- Load the data shown in the introduction  (the 9 lists above)
 """
 
-df = pd.DataFrame(
-    {
-        "lon_left": [4.76, 4.87, 3.69, 2.36, 2.74, 2.88, 2.69],
-        "lat_left": [52.30, 52.05, 50.31, 48.41, 46.09, 43.82, 41.88],
-        "lon_mid": [4.76, 4.79, 3.62, 2.287, 2.67, 2.81, 2.69],
-        "lat_mid": [52.30, 52.04, 50.30, 48.39, 46.09, 43.81, 41.88],
-        "lon_right": [4.76, 4.72, 3.55, 2.21, 2.59, 2.73, 2.69],
-        "lat_right": [52.30, 52.04, 50.30, 48.39, 46.09, 43.81, 41.88],
-        "df_left": [1.1, 0.95, 0.96, 0.99, 1.2, 1.2, 0.95],
-        "df_mid": [1.1, 1.2, 1, 0.96, 0.99, 0.98, 0.95],
-        "df_right": [1.1, 0.9, 0.97, 1, 1.2, 1.2, 0.95],
-    }
-)
+lon_lef = [4.76, 4.87, 3.69, 2.36, 2.74, 2.88, 2.69]
+lat_lef = [52.30, 52.05, 50.31, 48.41, 46.09, 43.82, 41.88]
+lon_mid = [4.76, 4.79, 3.62, 2.287, 2.67, 2.81, 2.69]
+lat_mid = [52.30, 52.04, 50.30, 48.39, 46.09, 43.81, 41.88]
+lon_rig = [4.76, 4.72, 3.55, 2.21, 2.59, 2.73, 2.69]
+lat_rig = [52.30, 52.04, 50.30, 48.39, 46.09, 43.81, 41.88]
 
-print(df)
+midDF = [1.1, 1.2, 1, 0.96, 0.99, 0.98, 0.95]
+lefDF = [1.1, 0.95, 0.96, 0.99, 1.2, 1.2, 0.95]
+rigDF = [1.1, 0.9, 0.97, 1, 1.2, 1.2, 0.95]
 
+
+class Coord:
+    def __init__(self, lat: float, lon: float):
+        self._lat = lat
+        self._lon = lon
+
+    @property
+    def latlon(self) -> tuple[float, float]:
+        return (self._lat, self._lon)
+
+    @property
+    def lat(self) -> float:
+        return self._lat
+
+    @property
+    def lon(self) -> float:
+        return self._lon
+
+    def __str__(self):
+        return f"{self._lat}° {'N' if self._lat >= 0 else 'S'}, {self._lon}° {'E' if self._lon >= 0 else 'W'}"
+
+
+start_coord = Coord(lat_lef[0], lon_lef[0])
+end_coord = Coord(lat_lef[-1], lon_lef[-1])
+
+left_df: list[float] = [(lefDF[i] + lefDF[i + 1]) / 2 for i in range(len(lefDF) - 1)]
+mid_df: list[float] = [(midDF[i] + midDF[i + 1]) / 2 for i in range(len(midDF) - 1)]
+right_df: list[float] = [(rigDF[i] + rigDF[i + 1]) / 2 for i in range(len(rigDF) - 1)]
+
+left: list[Coord] = [Coord(lat, lon) for (lat, lon) in zip(lat_lef, lon_lef)]
+mid: list[Coord] = [Coord(lat, lon) for (lat, lon) in zip(lat_mid, lon_mid)]
+right: list[Coord] = [Coord(lat, lon) for (lat, lon) in zip(lat_rig, lon_rig)]
 
 """
 3.- Using a For loop, calculate the total distance, including the distance
@@ -80,45 +100,17 @@ print(df)
 
 """
 
-dist_left = []
-dist_mid = []
-dist_right = []
+dist_left, dist_mid, dist_right = 0, 0, 0
 
+for i in range(1, len(left)):
+    dist_left += v_direct((left[i - 1].lon, left[1 - 1].lat), (left[i].lon, left[i].lat))[0] * left_df[i - 1]
+    dist_mid += v_direct((mid[i - 1].lon, mid[1 - 1].lat), (mid[i].lon, mid[i].lat))[0] * mid_df[i - 1]
+    dist_right += v_direct((right[i - 1].lon, right[1 - 1].lat), (right[i].lon, right[i].lat))[0] * right_df[i - 1]
 
-def get_segment_distances(df: pd.DataFrame, track: str):
-    distances = []
-    for i in range(df.shape[0] - 1):
-        lon_left1, lat_left1, lon_mid1, lat_mid1, lon_right1, lat_right1, df_left1, df_mid1, df_right1 = df.iloc[[i]][
-            [["lon_left", "lat_left", "lon_mid", "lat_mid", "lon_right", "lat_right", "df_left", "df_mid", "df_right"]]
-        ].values[0]
+print(f"Left: {qty.Distance(dist_left).km} km, {qty.Distance(dist_left).n_mile} NM")
+print(f"Mid: {qty.Distance(dist_mid).km} km, {qty.Distance(dist_mid).n_mile} NM")
+print(f"Right: {qty.Distance(dist_right).km} km, {qty.Distance(dist_right).n_mile} NM")
 
-        lon_left2, lat_left2, lon_mid2, lat_mid2, lon_right2, lat_right2, df_left2, df_mid2, df_right2 = df.iloc[
-            [i + 1]
-        ][
-            [["lon_left", "lat_left", "lon_mid", "lat_mid", "lon_right", "lat_right", "df_left", "df_mid", "df_right"]]
-        ].values[
-            0
-        ]
-
-        df_left = (df_left1 + df_left2) / 2
-        df_mid = (df_mid1 + df_mid2) / 2
-        df_right = (df_right1 + df_right2) / 2
-
-        dist_left = v_direct((lat_left1, lon_left1), (lat_left2, lon_left2))
-        dist_mid = v_direct((lat_mid1, lon_mid1), (lat_mid2, lon_mid2))
-        dist_right = v_direct((lat_right1, lon_right1), (lat_right2, lon_right2))
-
-        print(dist_left, dist_mid, dist_right)
-
-    distances.append(0)
-    return distances
-
-
-df["dist_left"] = get_segment_distances(df, "left")
-df["dist_mid"] = get_segment_distances(df, "mid")
-df["dist_right"] = get_segment_distances(df, "right")
-
-print(df[["dist_left", "dist_mid", "dist_right"]].sum() / 1000)
 """
 4.- In this step, a simple greedy optimization method should be applied.
     Try to optimize your distance by calculating at each waypoint, the
@@ -128,7 +120,54 @@ print(df[["dist_left", "dist_mid", "dist_right"]].sum() / 1000)
     Show this trajectory on the map (or a scatter plot). You can move along mid, left or right. 
     Be sure to show witha different color the points where the "optimal" candiate is located
 """
-# CODE
+
+
+def heuristic(coord: Coord) -> float:
+    dist_to_dest = v_direct(coord.lon, coord.lat)[0]
+    return dist_to_dest
+
+
+class Node:
+    def __init__(self, state, parent, action):
+        self.state = state
+        self.parent = parent
+        self.action = action
+
+
+class StackFrontier:
+    def __init__(self):
+        self.frontier = []
+
+    def add(self, node):
+        self.frontier.append(node)
+
+    def contains_state(self, state):
+        return any(node.state == state for node in self.frontier)
+
+    def emtpy(self):
+        return len(self.frontier) == 0
+
+    def remove(self):
+        if self.empty():
+            raise Exception("empty frontier")
+        else:
+            node = self.frontier[-1]
+            self.frontier = self.frontier[:-1]
+            return node
+
+
+class QueueFrontier(StackFrontier):
+    def remove(self):
+        if self.empty():
+            raise Exception("empty frontier")
+        else:
+            node = self.frontier[0]
+            self.frontier = self.frontier[1:]
+            return node
+
+
+# class GreedyFrontier(StackFrontier):
+#     def remove(self):
 
 
 """
