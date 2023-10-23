@@ -36,7 +36,7 @@ Then load the v_direct and v_inverse functions.
 from math import dist
 
 import pandas as pd
-import qty
+from avipy import qty
 from matplotlib.cbook import Stack
 from vinc import v_direct, v_inverse
 
