@@ -24,7 +24,6 @@ def v_direct(coord1, coord2, maxIter=200, tol=10**-12):
     # tol=10**-12
     # coord1 = (42.3541165, -71.0693514)
     # coord2 = (40.7791472, -73.9680804)
-
     # --- CONSTANTS ------------------------------------+
 
     a = 6378137.0  # radius at equator in meters (WGS-84)
@@ -59,13 +58,17 @@ def v_direct(coord1, coord2, maxIter=200, tol=10**-12):
 
         cos_lambda = cos(Lambda)
         sin_lambda = sin(Lambda)
+
         sin_sigma = sqrt((cos_u2 * sin(Lambda)) ** 2 + (cos_u1 * sin_u2 - sin_u1 * cos_u2 * cos_lambda) ** 2)
         cos_sigma = sin_u1 * sin_u2 + cos_u1 * cos_u2 * cos_lambda
         sigma = atan2(sin_sigma, cos_sigma)
+
         sin_alpha = (cos_u1 * cos_u2 * sin_lambda) / sin_sigma
         cos_sq_alpha = 1 - sin_alpha**2
         cos2_sigma_m = cos_sigma - ((2 * sin_u1 * sin_u2) / cos_sq_alpha)
+
         C = (f / 16) * cos_sq_alpha * (4 + f * (4 - 3 * cos_sq_alpha))
+
         Lambda_prev = Lambda
         Lambda = L + (1 - C) * f * sin_alpha * (
             sigma + C * sin_sigma * (cos2_sigma_m + C * cos_sigma * (-1 + 2 * cos2_sigma_m**2))
@@ -73,6 +76,7 @@ def v_direct(coord1, coord2, maxIter=200, tol=10**-12):
 
         # successful convergence
         diff = abs(Lambda_prev - Lambda)
+
         if diff <= tol:
             break
 
@@ -207,6 +211,13 @@ def v_inverse(lat1, lon1, az12, s):
         az21 = az21 - 360
 
     return lat2, lon2
+
+
+if __name__ == "__main__":
+    boston = (42.3541165, -71.0693514)
+    newyork = (40.7791472, -73.9680804)
+    x = v_direct(boston, newyork)  # In m and degrees
+    print(x)
 
 
 ## TEST CODE BEGINS HERE
