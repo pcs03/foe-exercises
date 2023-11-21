@@ -17,8 +17,17 @@ A distance factor of 0.9 simulates tailwinds thus the distance is reduced.
 
 This is your DATA (See Figure 2 in DLO to understand this):
     ALL IN DEGREES
+lon_lef = [4.76, 4.87, 3.69, 2.36, 2.74, 2.88, 2.69]
+lat_lef = [52.30, 52.05, 50.31, 48.41, 46.09, 43.82, 41.88]
+lon_mid = [4.76, 4.79, 3.62, 2.287, 2.67, 2.81, 2.69]
+lat_mid = [52.30, 52.04, 50.30, 48.39, 46.09, 43.81, 41.88]
+lon_rig = [4.76, 4.72, 3.55, 2.21, 2.59, 2.73, 2.69]
+lat_rig = [52.30, 52.04, 50.30, 48.39, 46.09, 43.81, 41.88]
 
     NO UNITS (Wind Factor)
+midDF = [1.1, 1.2, 1, 0.96, 0.99, 0.98, 0.95]
+lefDF = [1.1, 0.95, 0.96, 0.99, 1.2, 1.2, 0.95]
+rigDF = [1.1, 0.9, 0.97, 1, 1.2, 1.2, 0.95]
 
 lon_mid and lat_mid are the coordinates for the reference trajectory
 lon_rig and lat rit are the coordinates for the trajectory at the right
@@ -33,17 +42,12 @@ midDF, leftDF, and rig DF are the distance factores (wind emulation)
 1.- Place the vinc.py file (workshop 1 - optimization) in the same directory as this file. 
 Then load the v_direct and v_inverse functions. 
 """
-from math import dist
 
-import pandas as pd
-from avipy import qty
-from matplotlib.cbook import Stack
-from vinc import v_direct, v_inverse
+from avipy import geo, qty
 
 """
-2.- Load the data shown in the introduction  (the 9 lists above)
+2.- load the data shown in the introduction  (the 9 lists above)
 """
-
 lon_lef = [4.76, 4.87, 3.69, 2.36, 2.74, 2.88, 2.69]
 lat_lef = [52.30, 52.05, 50.31, 48.41, 46.09, 43.82, 41.88]
 lon_mid = [4.76, 4.79, 3.62, 2.287, 2.67, 2.81, 2.69]
@@ -54,39 +58,6 @@ lat_rig = [52.30, 52.04, 50.30, 48.39, 46.09, 43.81, 41.88]
 midDF = [1.1, 1.2, 1, 0.96, 0.99, 0.98, 0.95]
 lefDF = [1.1, 0.95, 0.96, 0.99, 1.2, 1.2, 0.95]
 rigDF = [1.1, 0.9, 0.97, 1, 1.2, 1.2, 0.95]
-
-
-class Coord:
-    def __init__(self, lat: float, lon: float):
-        self._lat = lat
-        self._lon = lon
-
-    @property
-    def latlon(self) -> tuple[float, float]:
-        return (self._lat, self._lon)
-
-    @property
-    def lat(self) -> float:
-        return self._lat
-
-    @property
-    def lon(self) -> float:
-        return self._lon
-
-    def __str__(self):
-        return f"{self._lat}° {'N' if self._lat >= 0 else 'S'}, {self._lon}° {'E' if self._lon >= 0 else 'W'}"
-
-
-start_coord = Coord(lat_lef[0], lon_lef[0])
-end_coord = Coord(lat_lef[-1], lon_lef[-1])
-
-left_df: list[float] = [(lefDF[i] + lefDF[i + 1]) / 2 for i in range(len(lefDF) - 1)]
-mid_df: list[float] = [(midDF[i] + midDF[i + 1]) / 2 for i in range(len(midDF) - 1)]
-right_df: list[float] = [(rigDF[i] + rigDF[i + 1]) / 2 for i in range(len(rigDF) - 1)]
-
-left: list[Coord] = [Coord(lat, lon) for (lat, lon) in zip(lat_lef, lon_lef)]
-mid: list[Coord] = [Coord(lat, lon) for (lat, lon) in zip(lat_mid, lon_mid)]
-right: list[Coord] = [Coord(lat, lon) for (lat, lon) in zip(lat_rig, lon_rig)]
 
 """
 3.- Using a For loop, calculate the total distance, including the distance
@@ -99,17 +70,29 @@ right: list[Coord] = [Coord(lat, lon) for (lat, lon) in zip(lat_rig, lon_rig)]
     Print the result in km and in nautical miles
 
 """
+left_path = 0
+mid_path = 0
+right_path = 0
 
-dist_left, dist_mid, dist_right = 0, 0, 0
+for i in range(len(lon_lef) - 1):
+    left_coord = geo.Coord(lat_lef[i], lon_lef[i])
+    mid_coord = geo.Coord(lat_mid[i], lon_mid[i])
+    right_coord = geo.Coord(lat_rig[i], lon_rig[i])
 
-for i in range(1, len(left)):
-    dist_left += v_direct((left[i - 1].lon, left[1 - 1].lat), (left[i].lon, left[i].lat))[0] * left_df[i - 1]
-    dist_mid += v_direct((mid[i - 1].lon, mid[1 - 1].lat), (mid[i].lon, mid[i].lat))[0] * mid_df[i - 1]
-    dist_right += v_direct((right[i - 1].lon, right[1 - 1].lat), (right[i].lon, right[i].lat))[0] * right_df[i - 1]
+    left_wf = (lefDF[i] + lefDF[i + 1]) / 2
+    mid_wf = (midDF[i] + midDF[i + 1]) / 2
+    right_wf = (rigDF[i] + rigDF[i + 1]) / 2
+    
+    left_path += left_coord.get_distance_bearing(geo.Coord(lat_lef[i + 1], lon_lef[i + 1]))[0] * left_wf
+    mid_path += mid_coord.get_distance_bearing(geo.Coord(lat_mid[i + 1], lon_mid[i + 1]))[0] * mid_wf
+    right_path += right_coord.get_distance_bearing(geo.Coord(lat_rig[i + 1], lon_rig[i + 1]))[0] * right_wf
 
-print(f"Left: {qty.Distance(dist_left).km} km, {qty.Distance(dist_left).n_mile} NM")
-print(f"Mid: {qty.Distance(dist_mid).km} km, {qty.Distance(dist_mid).n_mile} NM")
-print(f"Right: {qty.Distance(dist_right).km} km, {qty.Distance(dist_right).n_mile} NM")
+
+    print(left_coord, mid_coord, right_coord, left_wf)
+    print(left_path, mid_path, right_path)
+
+
+    
 
 """
 4.- In this step, a simple greedy optimization method should be applied.
@@ -118,56 +101,15 @@ print(f"Right: {qty.Distance(dist_right).km} km, {qty.Distance(dist_right).n_mil
     one of the options (left, middle or right), and fly to the least expensive.
     This process should be repeated until the aircraft reaches the last waypoint.
     Show this trajectory on the map (or a scatter plot). You can move along mid, left or right. 
-    Be sure to show witha different color the points where the "optimal" candiate is located
+    Be sure to show witha different color the points where the "optimal" candiate is located.
+    Use the wind factor.
 """
+#CODE
 
 
-def heuristic(coord: Coord) -> float:
-    dist_to_dest = v_direct(coord.lon, coord.lat)[0]
-    return dist_to_dest
 
 
-class Node:
-    def __init__(self, state, parent, action):
-        self.state = state
-        self.parent = parent
-        self.action = action
 
-
-class StackFrontier:
-    def __init__(self):
-        self.frontier = []
-
-    def add(self, node):
-        self.frontier.append(node)
-
-    def contains_state(self, state):
-        return any(node.state == state for node in self.frontier)
-
-    def emtpy(self):
-        return len(self.frontier) == 0
-
-    def remove(self):
-        if self.empty():
-            raise Exception("empty frontier")
-        else:
-            node = self.frontier[-1]
-            self.frontier = self.frontier[:-1]
-            return node
-
-
-class QueueFrontier(StackFrontier):
-    def remove(self):
-        if self.empty():
-            raise Exception("empty frontier")
-        else:
-            node = self.frontier[0]
-            self.frontier = self.frontier[1:]
-            return node
-
-
-# class GreedyFrontier(StackFrontier):
-#     def remove(self):
 
 
 """
@@ -181,5 +123,14 @@ class QueueFrontier(StackFrontier):
     Why?
 """
 # CODE
+
+
+# 6.- Open the Figure_1.png from Brigthspace. You are traveling from point A to point Z. 
+#     1.- Create an adjacent matrix showing the connections between different nodes.
+#         Think about how that adjacent matrix will be used. How does the algorithm know where
+#         "to go" next.
+#     Hint: You can rename your points to make it easier to make it easier to identify and 
+#            visualize in your adjancent matrix. 
+
 
 ### WORKSHOP ENDS ####
