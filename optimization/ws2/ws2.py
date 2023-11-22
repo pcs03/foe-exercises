@@ -87,12 +87,9 @@ for i in range(len(lon_lef) - 1):
     mid_path += mid_coord.get_distance_bearing(geo.Coord(lat_mid[i + 1], lon_mid[i + 1]))[0] * mid_wf
     right_path += right_coord.get_distance_bearing(geo.Coord(lat_rig[i + 1], lon_rig[i + 1]))[0] * right_wf
 
-
-    print(left_coord, mid_coord, right_coord, left_wf)
-    print(left_path, mid_path, right_path)
-
-
-    
+print(f"Left path: {left_path}")
+print(f"Mid path: {mid_path}")
+print(f"Right path: {right_path}")
 
 """
 4.- In this step, a simple greedy optimization method should be applied.
@@ -104,9 +101,34 @@ for i in range(len(lon_lef) - 1):
     Be sure to show witha different color the points where the "optimal" candiate is located.
     Use the wind factor.
 """
-#CODE
+
+# List of the path, with the starting coordinate
+path: list[tuple[str, geo.Coord]] = [("mid", geo.Coord(lat_mid[0], lon_mid[0]))] 
+
+for i in range(len(lon_lef) - 1):
+    current_node = path[-1]
+    current_path = current_node[0]
+    current_coord = current_node[1]
+
+    if current_path == "left":
+        left_wf = (lefDF[i] + lefDF[i + 1]) / 2
+        mid_df = (lefDF[i] + midDF[i + 1]) / 2
+        left_wf = (lefDF[i] + rigDF[i + 1]) / 2
 
 
+    left_coord = geo.Coord(lat_lef[i], lon_lef[i])
+    mid_coord = geo.Coord(lat_mid[i], lon_mid[i])
+    right_coord = geo.Coord(lat_rig[i], lon_rig[i])
+
+    left_wf = (lefDF[i] + lefDF[i + 1]) / 2
+    mid_wf = (midDF[i] + midDF[i + 1]) / 2
+    right_wf = (rigDF[i] + rigDF[i + 1]) / 2
+    
+    left_path += left_coord.get_distance_bearing(geo.Coord(lat_lef[i + 1], lon_lef[i + 1]))[0] * left_wf
+    mid_path += mid_coord.get_distance_bearing(geo.Coord(lat_mid[i + 1], lon_mid[i + 1]))[0] * mid_wf
+    right_path += right_coord.get_distance_bearing(geo.Coord(lat_rig[i + 1], lon_rig[i + 1]))[0] * right_wf
+
+print(f"Left path: {left_path}")
 
 
 
