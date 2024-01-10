@@ -16,11 +16,13 @@ Version 3:
 
 import numpy as np
 
+
 def load_weather():
-    TMP = np.genfromtxt('TMP_date_1_alt_1.csv', delimiter = ',')
-    WIND = np.genfromtxt('WIND_date_1_alt_1.csv', delimiter = ',')
-    WDIR = np.genfromtxt('WDIR_date_1_alt_1.csv', delimiter = ',')
+    TMP = np.genfromtxt("TMP_date_1_alt_1.csv", delimiter=",")
+    WIND = np.genfromtxt("WIND_date_1_alt_1.csv", delimiter=",")
+    WDIR = np.genfromtxt("WDIR_date_1_alt_1.csv", delimiter=",")
     return TMP, WIND, WDIR
+
 
 tmp, wind, wdir = load_weather()
 
@@ -60,51 +62,51 @@ tmp, wind, wdir = load_weather()
 # LAT should be given from -90(SOUTH) to 90 (NORTH)
 # LON shoould be provided from -180 (WEST) to 180 (EST)
 
-lat =  90
-lon = 180
+lat = 51.5083
+lon = -0.12574
 
-#if lat > 0:
-lat = lat + 90 # real coordinate
-lat_i = lat/180
-lat_i = (lat_i * 301)
-lat_i = round(lat_i) # index
+# if lat > 0:
+lat = lat + 90  # real coordinate
+lat_i = lat / 180
+lat_i = lat_i * 301
+lat_i = round(lat_i)  # index
 
 
 lon = 180 + lon
-     
-lon_i = lon/360
+
+lon_i = lon / 360
 lon_i = lon_i * 601
-lon_i = round(lon_i) # index
+lon_i = round(lon_i)  # index
 
 # The operation at row provides the row where the desired indeces are located
-row = (lat_i-1)*601+lon_i-1
+row = (lat_i - 1) * 601 + lon_i - 1
 
 print("The required indeces are: ")
-print ("For i index (lon_i) :  " + str(lon_i))
-print ("For j index (lat_i) :  " + str(lat_i))
+print("For i index (lon_i) :  " + str(lon_i))
+print("For j index (lat_i) :  " + str(lat_i))
 
 print("The approximateive coordinate are: ")
-print ("Longitude :  " + str(lon_i*0.6)) # 0.6 as it is the separation
-print ("Latitude :  " + str(lat_i*0.6))
+print("Longitude :  " + str(lon_i * 0.6))  # 0.6 as it is the separation
+print("Latitude :  " + str(lat_i * 0.6))
 print("")
 
 temperature_row = tmp[row]
 temperature = tmp[row][2]
-print ("The temperature row " + str(row) + " contains the following information:")
+print("The temperature row " + str(row) + " contains the following information:")
 print(temperature_row)
 print("")
 
 wind_speed_row = wind[row]
 wind_speed = wind[row][2]
 
-print ("The wind row " + str(row) + " contains the following information:")
+print("The wind row " + str(row) + " contains the following information:")
 print(wind_speed_row)
 print("")
 
 wind_dir_row = wdir[row]
 wind_dir = wdir[row][2]
 
-print ("The wind dir row " + str(row) + " contains the following information:")
+print("The wind dir row " + str(row) + " contains the following information:")
 print(wind_dir_row)
 print("")
 
