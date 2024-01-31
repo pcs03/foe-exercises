@@ -11,6 +11,10 @@ how can you adapt that to your new problem?
 """
 
 import numpy as np
+import random
+import math
+from avipy import geo, qty, atmosphere as atm
+
 ##============================================================================
 ## Exercise 1
 ## Go to brightspace and open the file Graph_Exercise.pdf
@@ -18,25 +22,140 @@ import numpy as np
 ## on the downloaded file that connects the point AMS to FCO (Rome)
 ## Save ALL the options in a list.
 ##============================================================================
-graphs = [[0,1,1,1,0,0,0,0],[0,0,0,0,1,1,0,0],[0,0,0,0,0,1,0,0],[0,0,0,0,0,1,1,0],[0,0,0,0,0,0,0,1],[0,0,0,0,0,0,0,1],[0,0,0,0,0,0,0,1],[0,0,0,0,0,0,0,0]]
-#This is the adjacent matrix (you are welcome)
+graphs = [
+    [0, 1, 1, 1, 0, 0, 0, 0],
+    [0, 0, 0, 0, 1, 1, 0, 0],
+    [0, 0, 0, 0, 0, 1, 0, 0],
+    [0, 0, 0, 0, 0, 1, 1, 0],
+    [0, 0, 0, 0, 0, 0, 0, 1],
+    [0, 0, 0, 0, 0, 0, 0, 1],
+    [0, 0, 0, 0, 0, 0, 0, 1],
+    [0, 0, 0, 0, 0, 0, 0, 0],
+]
+# This is the adjacent matrix (you are welcome)
+
+labels = {
+    0: "AMS",
+    1: "CDG",
+    2: "FRA",
+    3: "PRG",
+    4: "TRN",
+    5: "MXP",
+    6: "VCE",
+    7: "FCO",
+}
+
+
+class Node:
+    def __init__(self, state, parent):
+        self.state = state
+        self.parent = parent
+
+    def print_path(self):
+        print(f"Found destination node: {self.state}, tracing path...")
+        node = self.parent
+        while not node:
+            print(node.state, end=" ")
+            node = node.parent
+        print("\nEnd.")
+
+    def get_route(self):
+        node = self
+        route = []
+        while node:
+            route.append(node.state)
+            node = node.parent
+        return route
+
+
+routes = []
+
+queue = [Node(0, None)]
+while queue:
+    node = queue.pop(0)
+    print(node.state)
+    if node.state == 7:
+        routes.append(node.get_route())
+        node.print_path()
+
+    adj = graphs[node.state]
+    n = [Node(i, node) for i in range(len(adj)) if adj[i] == 1]
+    queue.extend(n)
 
 
 ##============================================================================
 ## Exercise 2
-## Now that you have all the possible trajectories. 
+## Now that you have all the possible trajectories.
 ## 1.- Find the main aiport coordinates for each city at Graph_Exercise.pdf
-## 2.- Compute the distance for each edge of the graph. 
+## 2.- Compute the distance for each edge of the graph.
 ## 3.- Assign random wind and find the shortest trajectory (using the wind)
 ## 4.- Assume an altitude of 34,000 ft and a Mach = 0.74. What is the flight
-##     time for each possible flight? 
-##     Remember that the Mach number to TAS changes with the altitude. 
+##     time for each possible flight?
+##     Remember that the Mach number to TAS changes with the altitude.
 ## 5.- What would be the flight time for each trajectory with the wind?
 ## 6.- Assign wind to a trajectory so the solution would be
 ##     AMS - PRAGUE - MILAN - ROME
 ## Speed of sound = sqrt(gamma * R * T)
-## Where gamma = 
+## Where gamma =
 ##============================================================================
+
+def get_tas(mach, altitude_ft):
+    h = qty.Distance.Ft(altitude_ft)
+    temp = atm.get_temp(h)
+    sos = math.sqrt(1.4 * 287 * temp)
+    tas = mach * sos
+    return tas
+
+tas = get_tas(0.74, 34000)
+print(tas)
+
+
+coords = [
+    geo.Coord(52.31, 4.77),
+    geo.Coord(49.01, 2.55),
+    geo.Coord(50.04, 8.56),
+    geo.Coord(50.10, 14.26),
+    geo.Coord(45.20, 7.65),
+    geo.Coord(45.63, 8.73),
+    geo.Coord(45.50, 12.35),
+    geo.Coord(41.80, 12.25),
+]
+
+wf = [[random.uniform(0.8, 1.2) for _ in range(len(graphs[0]))] for _ in range(len(graphs))]
+gw = [[] for _ in range(len(graphs))]
+
+for i, adj in enumerate(graphs):
+    for j, neighbour in enumerate(adj):
+        if neighbour == 0:
+            gw[i].append(0)
+        else:
+            dist, _ = coords[i].get_distance_bearing(coords[j])
+            gw[i].append(dist.base)
+
+print(routes)
+print(wf)
+print(gw)
+
+wf[3][5] = 0.1
+
+weights = np.multiply(np.array(wf), np.array(gw))
+print(weights)
+
+for route in routes:
+    route = route[::-1]
+    total_weight = 0
+    print(f"Calculating route for route: '{route}'. Total weight:", end=" ")
+    for i in range(len(route) - 1):
+        node = route[i]
+        weight = weights[route[i]][route[i + 1]]
+        print(i, weight)
+        total_weight += weight
+    print(total_weight)
+    flight_time = total_weight / tas
+    print(f"Total Flight time: {qty.Time(flight_time).hour}")
+
+
+
 
 
 ##============================================================================
@@ -54,7 +173,7 @@ graphs = [[0,1,1,1,0,0,0,0],[0,0,0,0,1,1,0,0],[0,0,0,0,0,1,0,0],[0,0,0,0,0,1,1,0
 ## 1.- TMP_date_1_alt_1.csv
 ## 2.- WIND_date_1_alt_1.csv
 ## 3.- WDIR_date_1_alt_1.csv
-## Uncomment the code below line by line. 
+## Uncomment the code below line by line.
 ## Understand what it is happening
 ## Read and understand the code below
 ##============================================================================
@@ -113,7 +232,7 @@ graphs = [[0,1,1,1,0,0,0,0],[0,0,0,0,1,1,0,0],[0,0,0,0,0,1,0,0],[0,0,0,0,0,1,1,0
 
 
 # lon = 180 + lon
-     
+
 # lon_i = lon/360
 # lon_i = lon_i * 601
 # lon_i = round(lon_i) # index
@@ -169,7 +288,7 @@ graphs = [[0,1,1,1,0,0,0,0],[0,0,0,0,1,1,0,0],[0,0,0,0,0,1,0,0],[0,0,0,0,0,1,1,0
 ## Obtain the temperature, the wind angle (from the ture north) and the wind speed from the trajectory
 ## in Trajectory_example.txt. (You have to load this to python).
 ## Extra challengue: Compute the ground speed given a Mach number of 0.82.
-## TIP: You might want to encapsulate the code above in a function. 
+## TIP: You might want to encapsulate the code above in a function.
 ##============================================================================
 
 
@@ -181,43 +300,43 @@ graphs = [[0,1,1,1,0,0,0,0],[0,0,0,0,1,1,0,0],[0,0,0,0,0,1,0,0],[0,0,0,0,0,1,1,0
 ##  2.- Model a problem into equations
 ##  3.- Use given functions for your proble
 ##      Example: Vincenty and weather
-##  4.- Manipulate lists and numpy arrays. 
+##  4.- Manipulate lists and numpy arrays.
 ##  5.- Use built in functions in your benefit (Sum. min, max, etc)
-##  6.- Compute the distance between waypoints. 
-##  7.- Understand the difference between costs: real and fake distances. 
+##  6.- Compute the distance between waypoints.
+##  7.- Understand the difference between costs: real and fake distances.
 ##  8.- Implement the simplest optimization algorithms to find a solution.
-##  9.- Create your own waypoints using geodesic equations. 
+##  9.- Create your own waypoints using geodesic equations.
 ## 10.- Plot your waypoints in a different enviornment.
 ## 11.- Load files into data frames
 ## 12.- Clean files
 ## 13.- Use the data frames to compute distances.
 ## 14.- Develop the logic to be able to execute a brute force algorithm (Execrise 1 here above)
-## 15.- Use the simplest stochastic algorithm. 
+## 15.- Use the simplest stochastic algorithm.
 ## 16.- Use an adjacent table to represent graphs
-## 17.- You will find a bunch of weather data for different altitudes and different days in Brightspace. 
+## 17.- You will find a bunch of weather data for different altitudes and different days in Brightspace.
 
 ## What are we missing? Graph representation. This will be up to you
 ## There are many options, you can se packages to model the graph or you
-## can go old school and use pure adjacent lists/matrices (as done here.  
-## This will be a challengue for you to solve. Feel free to take this  
+## can go old school and use pure adjacent lists/matrices (as done here.
+## This will be a challengue for you to solve. Feel free to take this
 ## lesson in Datacamp: Network Analysis in Python (Part 1)
 ## https://www.datacamp.com/courses/network-analysis-in-python-part-1
-## Or use class (type of data) or any tool that you might find interesting.  
+## Or use class (type of data) or any tool that you might find interesting.
 ## Rememeber that you must develop your own code to apply the shortest path
 ## algorithm. Do not be afraid to look for inspiration in other people's code
-## For the rest you can use packages. 
+## For the rest you can use packages.
 ##
 ## NO CODE should be delivered in the paper. No python exclusive terms should
-## be used. Just follow the instructions provided in your Research methdology workshop. 
+## be used. Just follow the instructions provided in your Research methdology workshop.
 
 ## Metaherusitic algorithms are also missing. They are fairly simple to code
-## as long as you understand what they are doing. 
+## as long as you understand what they are doing.
 ## In general:
 ## Do not be afraid to ask other teams for help, feedback, or other opinions.
 ## Help each other.
-## 
+##
 ## What is next?
 ## 1.- Pick your algorithm, code it and have fun.
 ## 2.- Write your paper with all the instructions and methdology provied in your
-##     Research methdology workshop. The quality of the paper is graded. 
+##     Research methdology workshop. The quality of the paper is graded.
 ##============================================================================
